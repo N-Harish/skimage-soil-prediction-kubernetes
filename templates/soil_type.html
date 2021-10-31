@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>soil_type</title>
+    <link rel="stylesheet" href="./static/soil_type/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/soil_type/assets/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="./static/soil_type/assets/css/gradient-navbar.css">
+    <link rel="stylesheet" href="./static/soil_type/assets/css/styles.css">
+</head>
+
+<body style="background-color: black">
+    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
+        <div class="container-fluid"><a class="navbar-brand" href="#">Soil prediction</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/soil_upload">Soil type</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col" style="text-align: center;padding-top: 10px">
+        <div class="col-sm-4 col-xs-6 col-md-3 col-lg-3"><a class="text-right thumbnail" href="http://lorempixel.com/320/320" target="_blank"></a></div><img width="100%" height="auto" class="img-responsive" src="data:image/jpeg;base64,{{ img_soil }}">
+    </div>
+    <br>
+    <p style="font-size: 24px;text-align: left;padding-left: 20px;color: white";">The Given Soil Is {{ soil_type }}</p>
+    <script src="./static/soil_type/assets/js/jquery.min.js"></script>
+    <script src="./static/soil_type/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

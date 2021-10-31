@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>crop_recommend</title>
+    <link rel="stylesheet" href="./static/crop_recommend/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/crop_recommend/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="./static/crop_recommend/css/Dark-NavBar-1.css">
+    <link rel="stylesheet" href="./static/crop_recommend/css/Dark-NavBar-2.css">
+    <link rel="stylesheet" href="./static/crop_recommend/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="./static/crop_recommend/css/Multi-Select-Dropdown-by-Jigar-Mistry.css">
+    <link rel="stylesheet" href="./static/crop_recommend/css/Pulse-Button-on-Hover-1.css">
+    <link rel="stylesheet" href="./static/crop_recommend/css/Pulse-Button-on-Hover.css">
+    <link rel="stylesheet" href="./static/crop_recommend/css/styles.css">
+</head>
+
+<body style="background: #37434d;">
+    <div></div>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" style="height:80px;background-color:#37434d;color:#ffffff;">
+            <div class="container-fluid"><a class="navbar-brand" href="#">&nbsp;Maharashtra Soil</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link " style="color:#ffffff;" href="/"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div></div>
+    <div class="container">
+        <form action="{{ url_for('crop_recom_res') }}" method="post">
+            <div class="row" style="padding-top: 25px;">
+                <div class="col">
+                    <p style="text-align: center;color: var(--bs-body-bg);">Min Rainfall in mm</p><select id="dates-field-1" class="multiselect-ui form-control" name="min">
+                    {% for i in min_rainfall %}
+                        <option value={{ i }} >{{ i }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <p style="text-align: center;color: var(--bs-body-bg);">Max Rainfall in mm</p><select id="dates-field2" class="multiselect-ui form-control" name="max">
+                    {% for i in max_rainfall %}
+                        <option value={{ i }} >{{ i }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div><div>
+            <button class="pulseBtn">Submit</button>>
+        </form>
+    {% if flag %}
+    </div>
+        <h1 style="color: var(--bs-body-bg);text-align: center;padding-top: 50px;font-size: 50px;">Crops Recommended</h1>
+    </div>
+    <ul>
+    {% for i in crop %}
+        <li style="color: var(--bs-body-bg);font-size: 25px;padding-top: 10px;">{{ i }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <script src="./static/crop_recommend/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./static/crop_recommend/js/Multi-Select-Dropdown-by-Jigar-Mistry.js"></script>
+</body>
+
+</html>

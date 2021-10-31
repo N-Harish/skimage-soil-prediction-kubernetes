@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>soil_index_2</title>
+    <link rel="stylesheet" href="./static/soil_index_2/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="./static/soil_index_2/css/Header-Dark.css">
+    <link rel="stylesheet" href="./static/soil_index_2/css/Multi-Select-Dropdown-by-Jigar-Mistry.css">
+    <link rel="stylesheet" href="./static/soil_index_2/css/Pulse-Button-on-Hover-1.css">
+    <link rel="stylesheet" href="./static/soil_index_2/css/Pulse-Button-on-Hover.css">
+    <link rel="stylesheet" href="./static/soil_index_2/css/styles.css">
+    <link rel="stylesheet" href="./static/soil_type/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/soil_type/assets/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="./static/soil_type/assets/css/gradient-navbar.css">
+    <link rel="stylesheet" href="./static/soil_type/assets/css/styles.css">
+</head>
+
+<body>
+ <header class="header-dark">
+{#        <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">#}
+{#            <div class="container"><a class="navbar-brand" href="#">Maharashtra Soil</a></div>#}
+{#            <div class="container"><a class="navbar-brand" href="/soil_upload">Soil type</a></div>#}
+{#        </nav>#}
+         <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
+            <div class="container-fluid"><a class="navbar-brand" href="#">Soil prediction</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#">Maharashtra Soil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/soil_upload">Soil type</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container hero">
+        <form action="{{ url_for('model_pred') }}" method="post">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1 class="text-center">Soil Fertility Prediction</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">Nitrogen in ppm</p><select id="dates-field2" class="multiselect-ui form-control"  name="N">
+                        {% for i in N %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">Potassium in ppm</p><select id="dates-field-1" class="multiselect-ui form-control" name="K">
+                        {% for i in K %}
+                            <option value="{{ i }}" >{{ i }}</option>
+                         {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">Sulphur &nbsp;in&nbsp; ppm</p>
+                        <select id="dates-field-2" class="multiselect-ui form-control" name="S">
+                        {% for i in S %}
+                            <option value="{{ i }}" >{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">Copper&nbsp; in&nbsp; ppm</p><select id="dates-field-3" class="multiselect-ui form-control" name="cu">
+                        {% for i in cu %}
+                            <option value="{{ i }}" >{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">Phosphorus in ppm</p><select id="dates-field-4" class="multiselect-ui form-control" name="P">
+                        {% for i in P %}
+                            <option value="{{ i }}" >{{ i }}</option>
+                        {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">&nbsp; &nbsp; Iron&nbsp;&nbsp in&nbsp; &nbsp;ppm</p><select id="dates-field-5" class="multiselect-ui form-control" name="fe">
+                        {% for i in fe %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">Manganese in ppm</p><select id="dates-field-6" class="multiselect-ui form-control" name="Mn">
+                        {% for i in Mn %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">Barium  &nbsp;in&nbsp;&nbsp;  ppm</p><select id="dates-field-7" class="multiselect-ui form-control" name="B">
+                        {% for i in B %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp;pH&nbsp; &nbsp; &nbsp; &nbsp;value</p><select id="dates-field-8" class="multiselect-ui form-control" name="ph">
+                        {% for i in ph %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">ec value</p><select id="dates-field-9" class="multiselect-ui form-control" name="ec">
+                        {% for i in ec %}
+                            <option value="{{ i }}" >{{ i }}</option>
+                        {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p style="color: var(--bs-body-bg);text-align: center;">oc value</p><select id="dates-field-10" class="multiselect-ui form-control" name="oc">
+                        {% for i in oc %}
+                            <option value="{{ i }}" >{{ i }}</option>
+                        {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+            </div><div>
+            <button class="pulseBtn">Submit</button>>
+            </form>
+        </div>
+        </div>
+    </header>
+    <script src="./static/soil_index_2/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./static/soil_index_2/js/Multi-Select-Dropdown-by-Jigar-Mistry.js"></script>
+    <script src="./static/soil_upload/assets/js/jquery.min.js"></script>
+    <script src="./static/soil_upload/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

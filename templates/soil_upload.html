@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Soil type</title>
+    <link rel="stylesheet" href="./static/soil_upload/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/soil_upload/assets/css/Drag-Drop-File-Input-Upload.css">
+    <link rel="stylesheet" href="./static/soil_upload/assets/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="./static/soil_upload/assets/css/gradient-navbar.css">
+    <link rel="stylesheet" href="./static/soil_upload/assets/css/styles.css">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
+        <div class="container-fluid"><a class="navbar-brand" href="#">Soil prediction</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <form style="text-align: center;" action="{{ url_for("soil_type_response") }}" method="post" enctype="multipart/form-data">
+        <div class="form-group files color">
+            <input class="form-control-file" type="file" name="files" accept="image/*;capture=environment">
+        </div>
+        <input type="submit" class="btn btn-success" value="Submit">
+
+    </form>
+    <script src="./static/soil_upload/assets/js/jquery.min.js"></script>
+    <script src="./static/soil_upload/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
