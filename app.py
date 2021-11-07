@@ -89,15 +89,15 @@ def model_pred():
     Mn = request.form["Mn"]
     B = request.form["B"]
 
-    response = {"Nutrients": [N, P, K, ph, ec, oc, S, fe, cu, Mn, B]}
-    pred = requests.post(url="https://rest-api-soil.azurewebsites.net/model_pred", json=response)
+    # response = {"Nutrients": [N, P, K, ph, ec, oc, S, fe, cu, Mn, B]}
+    # pred = requests.post(url="https://rest-api-soil.azurewebsites.net/model_pred", json=response)
 
-    # X = [[N, P, K, ph, ec, oc, S, fe, cu, Mn, B]]
-    # model = pickle.load(open("model/model.cpickle","rb"))
-    # pred = model.predict(X)[0]
+    X = [[N, P, K, ph, ec, oc, S, fe, cu, Mn, B]]
+    model = pickle.load(open("model/model.cpickle","rb"))
+    pred = model.predict(X)[0]
 
     # pickle.dump(pred, open("model_prediction.pkl", "wb"))
-    session["pred"] = str(pred.json())
+    session["pred"] = str(pred)
     pred1 = ""
     if pred == 0:
         pred1 = "Less Fertile"
