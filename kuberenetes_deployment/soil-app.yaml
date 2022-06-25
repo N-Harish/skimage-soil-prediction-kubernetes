@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  soil-fertility
+  labels:
+    app:  soil-fertility
+spec:
+  selector:
+    matchLabels:
+      app: soil-fertility
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  soil-fertility
+    spec:
+      containers:
+      - name:  soil-fertility
+        image:  soil-pred
+        # Set imagePullPolicy to Never to use local docker image
+        imagePullPolicy: Never
+        ports:
+        - containerPort:  5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: soil-fertility-service
+  namespace: default
+spec:
+  selector:
+    app: soil-fertility
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+    nodePort: 30000
